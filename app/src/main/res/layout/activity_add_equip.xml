@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="in.equipshare.autobidder.AddEquipActivity">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/basic_details"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:id="@+id/type_equip"
+                    android:background="@drawable/border"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="27dp"
+
+                    />
+                <EditText
+                    android:id="@+id/brief_equip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="Brief Of Equipment"
+                    android:textSize="18sp"
+                    android:inputType="text"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"/>
+
+                <Spinner
+                    android:id="@+id/category_equip"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/border"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="12dp" />
+
+                <Spinner
+                    android:id="@+id/company_equip"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/border"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="12dp" />
+
+                <Spinner
+                    android:id="@+id/model_equip"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/border"
+                    android:layout_marginTop="12dp"  />
+
+                <EditText
+                    android:id="@+id/make_equip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:ems="10"
+                    android:hint="Make"
+                    android:inputType="textPersonName" />
+
+                <EditText
+                    android:id="@+id/year_equip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="13dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:hint="Year of Manufacture"
+                    android:ems="10"
+                    android:textSize="18sp"
+                    android:inputType="number" />
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="horizontal">
+                   <EditText
+                       android:id="@+id/usage_equip"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_marginTop="11dp"
+                       android:layout_marginLeft="20dp"
+                       android:hint="Usage"
+                       android:ems="10"
+                       android:inputType="number" />
+
+                   <Spinner
+                       android:id="@+id/km_or_hrs"
+                       android:layout_width="80dp"
+                       android:layout_height="45dp"
+                       android:background="@drawable/border"
+                       android:layout_marginTop="11dp"
+                       android:layout_marginStart="20dp"
+                       android:layout_marginRight="20dp"
+                       />
+               </LinearLayout>
+
+                <EditText
+                    android:id="@+id/serial_equip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:ems="10"
+                    android:hint="Serial Number"
+                    android:inputType="textPersonName" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/text_condition"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Condition Of Equipment"
+                    android:textSize="18sp"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginLeft="20dp"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/dent_equip"
+                        android:layout_marginTop="11dp"
+                        android:text="Dent"
+                        android:textSize="18sp"
+                        android:layout_marginLeft="20dp"
+                        />
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/scratch_equip"
+                        android:text="Scratch"
+                        android:layout_marginTop="11dp"
+                        android:textSize="18sp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Location of the equipment:"
+                        android:textSize="18sp"
+                        android:layout_marginTop="11dp"
+                        android:layout_marginLeft="20dp"/>
+                    <in.equipshare.autobidder.CustomAutoCompleteTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:id="@+id/location_equip"
+                        android:layout_marginTop="11dp"
+                        android:layout_marginLeft="20dp"
+                        android:hint="Type Your Location"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:text="Upload Images"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Exterior Images (min 4)"
+                        android:textSize="15sp" />
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/upload_exterior"
+                        android:onClick="loadImagefromGallery"
+                        android:text="Upload Image"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="15sp"
+                        android:text="Interior Images(min 3)"/>
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/upload_interior"
+                        android:text="Upload Image"/>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
