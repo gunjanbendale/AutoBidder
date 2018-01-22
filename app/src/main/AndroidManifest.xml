@@ -31,15 +31,14 @@
 
         <meta-data
             android:name="preloaded_fonts"
-            android:resource="@array/preloaded_fonts"
-            />
+            android:resource="@array/preloaded_fonts" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyD4UZHEVCIkShQBMTxLbndiFr5Y5EIS7aI"/>
-        <activity android:name=".MyEquipActivity" />
-        <activity android:name=".AddEquipActivity">
+            android:value="AIzaSyD4UZHEVCIkShQBMTxLbndiFr5Y5EIS7aI" />
 
-        </activity>
+        <activity android:name=".MyEquipActivity" />
+        <activity android:name=".AddEquipActivity"></activity>
+        <activity android:name=".AddLeadActivity"></activity>
     </application>
 
 </manifest>
