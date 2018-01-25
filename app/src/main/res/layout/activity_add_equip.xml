@@ -178,12 +178,39 @@
                         android:id="@+id/location_equip"
                         android:layout_marginTop="11dp"
                         android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
                         android:hint="Type Your Location"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
+                    <EditText
+                        android:id="@+id/buyprice_equip"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:ems="10"
+                        android:hint="Buying price"
+                        android:inputType="number" />
+                    <EditText
+                        android:id="@+id/expprice_equip"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginLeft="20dp"
+                        android:ems="10"
+                        android:hint="Expected price"
+                        android:inputType="number" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginLeft="20dp">
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

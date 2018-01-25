@@ -5,8 +5,8 @@
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
-
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -37,8 +37,10 @@
             android:value="AIzaSyD4UZHEVCIkShQBMTxLbndiFr5Y5EIS7aI" />
 
         <activity android:name=".MyEquipActivity" />
-        <activity android:name=".AddEquipActivity"></activity>
-        <activity android:name=".AddLeadActivity"></activity>
+        <activity android:name=".AddEquipActivity" />
+        <activity android:name=".AddLeadActivity" />
+        <activity android:name=".CarProfileActivity" />
+        <activity android:name=".DealerProfileActivity"></activity>
     </application>
 
 </manifest>
