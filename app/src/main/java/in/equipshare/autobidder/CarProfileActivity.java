@@ -1,6 +1,7 @@
 package in.equipshare.autobidder;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -9,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
+import android.webkit.WebView;
 import android.widget.TextView;
 
 import net.steamcrafted.materialiconlib.MaterialDrawableBuilder;
@@ -20,12 +22,36 @@ public class CarProfileActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     DataAdapter adapter;
     private final static int FADE_DURATION = 1400;
+    int flag=0;
     private ArrayList<CarProfileItems> profileItems;
+    MaterialIconView likebutton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_car_profile);
+        likebutton= (MaterialIconView) findViewById(R.id.like);
+        if(flag==0){
+            likebutton.setColor(Color.parseColor("#cccccc"));
+        }
+        else{
+            likebutton.setColor(Color.parseColor("#000080"));
+        }
+        likebutton.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if(flag==0){
+                            flag=1;
+                            likebutton.setColor(Color.parseColor("#000080"));
+                        }
+                        else {
+                            flag=0;
+                            likebutton.setColor(Color.parseColor("#cccccc"));
+                        }
+                    }
+                }
+        );
         recyclerView=findViewById(R.id.car_profile_recycler);
         profileItems=filldata();
         adapter = new DataAdapter(getApplicationContext(),profileItems);
