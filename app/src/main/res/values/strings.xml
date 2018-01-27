@@ -35,6 +35,42 @@
         <item>FIRE</item>
         <item>ARROW_UP</item>
     </string-array>
+    <string-array name="carprofilemenus">
+        <item>Brand:</item>
+        <item>Model:</item>
+        <item>Variant:</item>
+        <item>Year:</item>
+        <item>Usage:</item>
+        <item>Cost:</item>
+        <item>Expectations:</item>
+        <item>Location:</item>
+        <item>Dealer:</item>
+        <item>Owner:</item>
+    </string-array>
+    <string-array name="carprofileicons">
+        <item>PLAY</item>
+        <item>PLAY</item>
+        <item>PLAY</item>
+        <item>PLAY</item>
+        <item>PLAY</item>
+        <item>PLAY</item>
+        <item>PLAY</item>
+        <item>PLAY</item>
+        <item>PLAY</item>
+        <item>PLAY</item>
+    </string-array>
+    <string-array name="carprofilevalues">
+        <item>Lamborghini</item>
+        <item>Huracan</item>
+        <item>Avio</item>
+        <item>2017</item>
+        <item>800kms</item>
+        <item>2.91Cr</item>
+        <item>2.3Cr</item>
+        <item>Delhi</item>
+        <item>Pavan</item>
+        <item>Gunjan</item>
+    </string-array>
     <string name="action_settings">Settings</string>
 
     <!-- TODO: Remove or change this placeholder text -->
