@@ -10,6 +10,8 @@
             android:title="My Equipments"/>
         <item android:id="@+id/drmlead"
             android:title="Leads"/>
+        <item android:id="@+id/auctions"
+            android:title="Auctions"/>
     </group>
 
 </menu>

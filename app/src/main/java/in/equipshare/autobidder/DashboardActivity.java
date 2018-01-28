@@ -87,6 +87,9 @@ public class DashboardActivity extends AppCompatActivity
         if(id == R.id.drmlead){
             fragment = new DRMLeadsFragment();
         }
+        if(id == R.id.auctions){
+            fragment = new AuctionsFragment();
+        }
 
         if(fragment!=null)
         {

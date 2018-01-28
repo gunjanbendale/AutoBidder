@@ -70,8 +70,8 @@ public class LoginActivity extends AppCompatActivity {
             password.requestFocus();
             return;
         }
-        if (password.length() < 3) {
-            password.setError("Minimum length of Password should be 6 characters");
+        if (password.length() < 1) {
+            password.setError("Minimum length of Password should be 2 characters");
             password.requestFocus();
             return;
         }

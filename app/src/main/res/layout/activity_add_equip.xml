@@ -21,12 +21,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:id="@+id/type_equip"
-                    android:background="@drawable/border"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="27dp"
-
                     />
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
                 <EditText
                     android:id="@+id/brief_equip"
                     android:layout_width="match_parent"
@@ -37,12 +38,11 @@
                     android:inputType="text"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"/>
-
+            </android.support.design.widget.TextInputLayout>
                 <Spinner
                     android:id="@+id/category_equip"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:background="@drawable/border"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="12dp" />
@@ -52,7 +52,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
                     android:layout_marginLeft="20dp"
-                    android:background="@drawable/border"
                     android:layout_marginRight="20dp"
                     android:layout_marginTop="12dp" />
 
@@ -62,9 +61,10 @@
                     android:layout_height="40dp"
                     android:layout_marginLeft="20dp"
                     android:layout_marginRight="20dp"
-                    android:background="@drawable/border"
                     android:layout_marginTop="12dp"  />
-
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
                 <EditText
                     android:id="@+id/make_equip"
                     android:layout_width="match_parent"
@@ -75,7 +75,10 @@
                     android:ems="10"
                     android:hint="Make"
                     android:inputType="textPersonName" />
-
+            </android.support.design.widget.TextInputLayout>
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
                 <EditText
                     android:id="@+id/year_equip"
                     android:layout_width="match_parent"
@@ -87,11 +90,15 @@
                     android:ems="10"
                     android:textSize="18sp"
                     android:inputType="number" />
-
+                </android.support.design.widget.TextInputLayout>
                <LinearLayout
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
                    android:orientation="horizontal">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
                    <EditText
                        android:id="@+id/usage_equip"
                        android:layout_width="wrap_content"
@@ -101,18 +108,19 @@
                        android:hint="Usage"
                        android:ems="10"
                        android:inputType="number" />
-
+                </android.support.design.widget.TextInputLayout>
                    <Spinner
                        android:id="@+id/km_or_hrs"
                        android:layout_width="80dp"
                        android:layout_height="45dp"
-                       android:background="@drawable/border"
                        android:layout_marginTop="11dp"
                        android:layout_marginStart="20dp"
                        android:layout_marginRight="20dp"
                        />
                </LinearLayout>
-
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
                 <EditText
                     android:id="@+id/serial_equip"
                     android:layout_width="match_parent"
@@ -123,7 +131,7 @@
                     android:ems="10"
                     android:hint="Serial Number"
                     android:inputType="textPersonName" />
-
+                </android.support.design.widget.TextInputLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
@@ -172,6 +180,9 @@
                         android:textSize="18sp"
                         android:layout_marginTop="11dp"
                         android:layout_marginLeft="20dp"/>
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
                     <in.equipshare.autobidder.CustomAutoCompleteTextView
                         android:layout_width="match_parent"
                         android:layout_height="40dp"
@@ -180,11 +191,15 @@
                         android:layout_marginLeft="20dp"
                         android:layout_marginRight="20dp"
                         android:hint="Type Your Location"/>
+                    </android.support.design.widget.TextInputLayout>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
                     <EditText
                         android:id="@+id/buyprice_equip"
                         android:layout_width="match_parent"
@@ -195,6 +210,10 @@
                         android:ems="10"
                         android:hint="Buying price"
                         android:inputType="number" />
+                    </android.support.design.widget.TextInputLayout>
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
                     <EditText
                         android:id="@+id/expprice_equip"
                         android:layout_width="match_parent"
@@ -205,6 +224,7 @@
                         android:ems="10"
                         android:hint="Expected price"
                         android:inputType="number" />
+                    </android.support.design.widget.TextInputLayout>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"

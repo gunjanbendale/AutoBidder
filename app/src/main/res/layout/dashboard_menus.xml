@@ -3,8 +3,10 @@
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/rounded_corner"
-    android:padding="3dp"
-    android:layout_margin="8dp">
+    android:padding="7dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginLeft="7dp"
+    android:layout_marginRight="7dp">
     <net.steamcrafted.materialiconlib.MaterialIconView
         android:layout_width="30dp"
         android:layout_height="30dp"
