@@ -26,12 +26,20 @@
         <activity
             android:name=".DashboardActivity"
             android:label="@string/title_activity_dashboard"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+        </activity>
         <activity android:name=".DashboardFragActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+        <meta-data
+            android:name="android.app.searchable"
+            android:resource="@xml/searchable" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyD4UZHEVCIkShQBMTxLbndiFr5Y5EIS7aI" />
@@ -40,7 +48,7 @@
         <activity android:name=".AddEquipActivity" />
         <activity android:name=".AddLeadActivity" />
         <activity android:name=".CarProfileActivity" />
-        <activity android:name=".DealerProfileActivity"></activity>
+        <activity android:name=".DealerProfileActivity"/>
     </application>
 
 </manifest>

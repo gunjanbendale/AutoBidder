@@ -84,6 +84,12 @@
                 android:layout_gravity="center_horizontal"
                 android:id="@+id/auction_current_bid"
                 />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/auction_your_bid"/>
         </LinearLayout>
     <Button
         android:layout_width="wrap_content"
@@ -93,4 +99,23 @@
         android:id="@+id/auction_bid_now"
         android:textColor="#0c7cb3"
         android:background="#35b24a"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_gravity="center_vertical"
+        android:layout_height="wrap_content">
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:textSize="15sp"
+            android:text="+"
+            android:id="@+id/incr_bid"/>
+        <Button
+            android:layout_marginLeft="10dp"
+            android:id="@+id/decr_bid"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="-"
+            android:textSize="15sp"/>
+    </LinearLayout>
 </LinearLayout>
