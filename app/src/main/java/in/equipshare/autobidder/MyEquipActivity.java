@@ -14,9 +14,9 @@ import android.view.animation.AlphaAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import net.steamcrafted.materialiconlib.MaterialIconView;
-
 import java.util.ArrayList;
+
+import in.equipshare.autobidder.model.Equipments;
 
 public class MyEquipActivity extends Fragment {
     TextView add_equip;

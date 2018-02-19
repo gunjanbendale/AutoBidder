@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:text="Select the Category/Categories you need"
+        android:textSize="20sp"
+        />
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:id="@+id/offline"
+
+        android:text="Offline"
+        android:textSize="15sp"/>
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:id="@+id/dealer2dealer"
+        android:text="Dealer to Dealer"
+        android:textSize="15sp"/>
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/buyitnow"
+        android:text="Buy It Now"
+        android:textSize="15sp"/>
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/auctions"
+        android:layout_margin="10dp"
+        android:text="Auction"
+        android:textSize="15sp"/>
+
+</LinearLayout>

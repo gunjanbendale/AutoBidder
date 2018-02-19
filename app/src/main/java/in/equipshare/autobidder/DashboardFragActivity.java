@@ -1,7 +1,6 @@
 package in.equipshare.autobidder;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.graphics.Color;
 import android.support.annotation.Nullable;
@@ -14,31 +13,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.PieChart;
-import com.github.mikephil.charting.data.BarData;
-import com.github.mikephil.charting.data.BarDataSet;
-import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
-import com.github.mikephil.charting.formatter.LargeValueFormatter;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.highlight.Highlight;
 import com.github.mikephil.charting.listener.OnChartValueSelectedListener;
-import com.github.mikephil.charting.utils.ColorTemplate;
-import com.squareup.picasso.MemoryPolicy;
-import com.squareup.picasso.Picasso;
 
 import net.steamcrafted.materialiconlib.MaterialDrawableBuilder;
 import net.steamcrafted.materialiconlib.MaterialIconView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import in.equipshare.autobidder.model.MenuItems;
 
 public class DashboardFragActivity extends Fragment implements OnChartValueSelectedListener{
 
@@ -53,6 +45,7 @@ public class DashboardFragActivity extends Fragment implements OnChartValueSelec
         // Inflate the layout for this fragment
 
         View rootView = inflater.inflate(R.layout.activity_dashboard_frag, container, false);
+        rootView.getBackground().setAlpha(91);
         //Set onclick Listener for buttons in Dashboard fragment
         PieChart pieChart = (PieChart) rootView.findViewById(R.id.piechart1);
         pieChart.setUsePercentValues(true);
@@ -71,28 +64,27 @@ public class DashboardFragActivity extends Fragment implements OnChartValueSelec
         PieDataSet dataSet = new PieDataSet(yvalues, "Your Cars");
 
         ArrayList<String> xVals = new ArrayList<String>();
-
+        /*
         xVals.add("Mustang");
         xVals.add("Audi R8");
         xVals.add("Bugatti Veyron");
         xVals.add("Maserati M2");
         xVals.add("Koeningsegg Agera R");
         xVals.add("Lamborghini Veneno");
-
+        */
         PieData data = new PieData(dataSet);
         // In Percentage term
         data.setValueFormatter(new PercentFormatter());
         // Default value
         //data.setValueFormatter(new DefaultValueFormatter(0));
         pieChart.setData(data);
-
+        pieChart.setEntryLabelColor(Color.BLACK);
         pieChart.setDrawHoleEnabled(true);
         pieChart.setTransparentCircleRadius(35f);
         pieChart.setHoleRadius(35f);
-
         dataSet.setColors(ColorsTemplate.COLOR_SCHEMES);
+        data.setValueTextColor(Color.BLACK);
         data.setValueTextSize(10f);
-        data.setValueTextColor(Color.DKGRAY);
         pieChart.setOnChartValueSelectedListener(this);
 
         pieChart.animateXY(1400, 1400);

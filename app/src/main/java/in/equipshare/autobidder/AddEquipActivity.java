@@ -1,11 +1,13 @@
 package in.equipshare.autobidder;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -17,6 +19,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
@@ -35,6 +38,7 @@ import java.util.List;
 
 public class AddEquipActivity extends AppCompatActivity {
     AutoCompleteTextView atvplaces;
+    Button submit;
     PlacesTask placesTask;
     ParserTask parserTask;
     private static int RESULT_LOAD_IMG = 1;
@@ -47,7 +51,36 @@ public class AddEquipActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Add Equipment");
         atvplaces = (AutoCompleteTextView) findViewById(R.id.location_equip);
         atvplaces.setThreshold(1);
+        submit=(Button)findViewById(R.id.submit_equip);
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LayoutInflater inflater=getLayoutInflater();
+                final View alert = inflater.inflate(R.layout.equip_type_category,null);
+                final AlertDialog.Builder alertbuild=new AlertDialog.Builder(getApplicationContext());
 
+                alertbuild.setTitle("Select Category");
+                alertbuild.setView(alert);
+                alertbuild.setCancelable(false);
+                alertbuild.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                alertbuild.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+                AlertDialog dialog=alertbuild.create();
+                int width = (int)(getResources().getDisplayMetrics().widthPixels*0.90);
+                int height = (int)(getResources().getDisplayMetrics().heightPixels*0.50);
+                dialog.show();
+                dialog.getWindow().setLayout(width,height);
+            }
+        });
         atvplaces.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {

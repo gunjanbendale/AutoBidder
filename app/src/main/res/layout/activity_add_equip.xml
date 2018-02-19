@@ -258,6 +258,13 @@
                         android:id="@+id/upload_interior"
                         android:text="Upload Image"/>
                 </LinearLayout>
+                <Button
+                    android:layout_width="50dp"
+                    android:id="@+id/submit_equip"
+                    android:layout_height="wrap_content"
+                    android:text="Submit"
+                    android:textSize="20sp"
+                    android:textColor="#35b24a"/>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

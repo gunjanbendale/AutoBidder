@@ -17,6 +17,8 @@ import net.steamcrafted.materialiconlib.MaterialIconView;
 
 import java.util.ArrayList;
 
+import in.equipshare.autobidder.model.CarProfileItems;
+
 public class CarProfileActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     DataAdapter adapter;

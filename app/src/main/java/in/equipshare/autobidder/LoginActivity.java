@@ -8,11 +8,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import in.equipshare.autobidder.model.Result;
+import in.equipshare.autobidder.network.RetrofitInterface;
 import okhttp3.OkHttpClient;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -23,6 +26,8 @@ public class LoginActivity extends AppCompatActivity {
     private EditText mobile;
     private EditText password;
     private ProgressBar progressBar;
+    private TextView signUp;
+    private TextView forgotpass;
 
     public static final String TAG = LoginActivity.class.getSimpleName();
     private String mob,pass;
@@ -31,7 +36,7 @@ public class LoginActivity extends AppCompatActivity {
     Gson gson = new GsonBuilder().setLenient().create();
 
     OkHttpClient client = new OkHttpClient();
-    Retrofit.Builder builder=new Retrofit.Builder().baseUrl("http://auctioning-192405.appspot.com").client(client).addConverterFactory(GsonConverterFactory.create(gson));
+    Retrofit.Builder builder=new Retrofit.Builder().baseUrl("http://35.200.128.175").client(client).addConverterFactory(GsonConverterFactory.create(gson));
     Retrofit retrofit=builder.build();
     RetrofitInterface retrofitInterface=retrofit.create(RetrofitInterface.class);
 
@@ -42,17 +47,30 @@ public class LoginActivity extends AppCompatActivity {
         mobile= (EditText) findViewById(R.id.mobile);
         password=(EditText) findViewById(R.id.password);
         progressBar = (ProgressBar) findViewById(R.id.login_progress);
+
+        forgotpass = (TextView) findViewById(R.id.for_Pass);
+        signUp = (TextView) findViewById(R.id.SignUp);
+        forgotpass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this,ForgotPasswordActivity.class));
+            }
+        });
+        signUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LoginActivity.this,SignUpActivity.class));
+            }
+        });
         context = this.getApplicationContext();
     }
     public void SignUp(View view){
 
     }
-    public void forgotPassword(View view ){
-
-    }
     public void SignIN(View view){
         mob=mobile.getText().toString();
         pass=password.getText().toString();
+        //startActivity(new Intent(this, DashboardActivity.class));
         startSignin();
     }
     public void startSignin() {
@@ -61,7 +79,7 @@ public class LoginActivity extends AppCompatActivity {
         String pass = password.getText().toString();
 
         if (mob.isEmpty()) {
-            mobile.setError("Email/Phone is Required");
+            mobile.setError("Phone is Required");
             mobile.requestFocus();
             return;
         }
@@ -84,12 +102,11 @@ public class LoginActivity extends AppCompatActivity {
 
         Call<Result> call=retrofitInterface.login(mob,pass);
 
-
         call.enqueue(new Callback<Result>() {
             @Override
             public void onResponse(Call<Result> call, retrofit2.Response<Result> response) {
 
-                result=  response.body(); // have your all data
+                result=  response.body(); //    have your all data
                 String name =result.getName();
                 String msg=result.getMessage();
                 Toast.makeText(LoginActivity.this,msg,Toast.LENGTH_SHORT).show();
@@ -100,7 +117,6 @@ public class LoginActivity extends AppCompatActivity {
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 intent.putExtra("Result",result);
                 startActivity(intent);
-
 
             }
             @Override

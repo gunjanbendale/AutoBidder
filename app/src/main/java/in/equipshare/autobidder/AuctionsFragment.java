@@ -3,6 +3,7 @@ package in.equipshare.autobidder;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -24,6 +25,7 @@ public class AuctionsFragment extends Fragment {
     public static final int FADE_DURATION=1500;
     RecyclerView recyclerView;
     DataAdapter adapter;
+    Context context;
     ArrayList<UpcomingAuctionRec> data;
 
     @Override
@@ -31,6 +33,7 @@ public class AuctionsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootView= inflater.inflate(R.layout.fragment_auctions, container, false);
+        rootView.getBackground().setAlpha(91);
         recyclerView=(RecyclerView) rootView.findViewById(R.id.auctions_recycler);
         data=filldatas();
 
@@ -89,6 +92,8 @@ public class AuctionsFragment extends Fragment {
             viewHolder.auctionequip.setText(upcomingAuctionRecs.get(i).getAuction_equip());
             viewHolder.auctionbasebid.setText(upcomingAuctionRecs.get(i).getAuction_basebid());
             viewHolder.auctionimage.setImageResource(R.drawable.left);
+            viewHolder.auctionimage.setClickable(true);
+
             viewHolder.auctioncurrentbid.setText(upcomingAuctionRecs.get(i).getAuction_currentbid());
             viewHolder.auctionbidnow.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -240,6 +245,13 @@ public class AuctionsFragment extends Fragment {
                 auctionequip = (TextView)view.findViewById(R.id.auction_equip);
                 auctionbasebid = (TextView)view.findViewById(R.id.auction_base_bid);
                 auctionimage = (ImageView) view.findViewById(R.id.auction_image);
+                auctionimage.setClickable(true);
+                auctionimage.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(v.getContext(),CarProfileActivity.class));
+                    }
+                });
                 auctioncurrentbid= (TextView)view.findViewById(R.id.auction_current_bid);
                 auctionyourbid= (TextView) view.findViewById(R.id.auction_your_bid);
                 auctionincrbid= (Button)view.findViewById(R.id.incr_bid);
