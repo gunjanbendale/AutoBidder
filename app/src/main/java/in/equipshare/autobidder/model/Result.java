@@ -6,12 +6,16 @@ import android.os.Parcelable;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 public class Result implements Parcelable{
+    @SerializedName("id")
+    @Expose
+    private String id;
     @SerializedName("name")
     @Expose
     private String name;
     @SerializedName("msg")
     @Expose
     private String message;
+
 
     public String getName() {
         return name;
@@ -44,6 +48,7 @@ public class Result implements Parcelable{
 
     }
     protected Result(Parcel in){
+        this.id=in.readString();
         this.name=in.readString();
         this.message=in.readString();
     }
@@ -59,4 +64,11 @@ public class Result implements Parcelable{
         }
     };
 
+        public String getId() {
+            return id;
+        }
+
+        public void setId(String id) {
+            this.id = id;
+        }
 }

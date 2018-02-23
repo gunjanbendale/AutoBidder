@@ -2,10 +2,14 @@ package in.equipshare.autobidder;
 
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.SearchView;
 import android.view.MenuInflater;
 import android.support.design.widget.NavigationView;
@@ -16,12 +20,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import in.equipshare.autobidder.model.Result;
 import in.equipshare.autobidder.network.RetrofitInterface;
+import in.equipshare.autobidder.utils.Constants;
+import in.equipshare.autobidder.utils.SessionManagement;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -31,9 +38,11 @@ public class DashboardActivity extends AppCompatActivity
     Result result;
     Context context;
     Gson gson = new GsonBuilder().setLenient().create();
-
+    SessionManagement sessionManagement;
+    Result r;
+    boolean doubleBackToExitPressedOnce = false;
     OkHttpClient client = new OkHttpClient();
-    Retrofit.Builder builder=new Retrofit.Builder().baseUrl("http://auctioning-192405.appspot.com").client(client).addConverterFactory(GsonConverterFactory.create(gson));
+    Retrofit.Builder builder=new Retrofit.Builder().baseUrl(Constants.BASE_URL).client(client).addConverterFactory(GsonConverterFactory.create(gson));
     Retrofit retrofit=builder.build();
     RetrofitInterface retrofitInterface=retrofit.create(RetrofitInterface.class);
 
@@ -43,6 +52,9 @@ public class DashboardActivity extends AppCompatActivity
         setContentView(R.layout.activity_dashboard);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        sessionManagement= new SessionManagement(getApplicationContext());
+        Intent i=getIntent();
+        r=i.getParcelableExtra("Result");
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -62,9 +74,28 @@ public class DashboardActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
         }
+        else if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+
+        else {
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out);
+            ft.replace(R.id.screen_area,new DashboardFragActivity());
+            ft.commit();
+        }
+        this.doubleBackToExitPressedOnce = true;
+        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                doubleBackToExitPressedOnce=false;
+            }
+        }, 2000);
     }
     private void doMySearch(String query) {
        /* Call<List<Result>> call = retrofitInterface.search();
@@ -118,6 +149,9 @@ public class DashboardActivity extends AppCompatActivity
         if (id == R.id.dashboard) {
             fragment = new DashboardFragActivity();
         }
+        if(id == R.id.dealerprof){
+            fragment = new DealerProfileActivity();
+        }
         if(id == R.id.myequipments) {
             fragment = new MyEquipActivity();
         }
@@ -127,7 +161,23 @@ public class DashboardActivity extends AppCompatActivity
         if(id == R.id.auctions){
             fragment = new AuctionsFragment();
         }
+        else if (id == R.id.logout) {
+            new AlertDialog.Builder(this)
+                    .setTitle("Log Out")
+                    .setMessage("Are you sure you want to Logout?")
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener()
+                    {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            sessionManagement.logoutUser();
 
+                        }
+
+                    })
+                    .setNegativeButton("No", null)
+                    .show();
+
+        }
         if(fragment!=null)
         {
             FragmentManager fragmentManager=getSupportFragmentManager();

@@ -6,12 +6,16 @@
     <group android:checkableBehavior="single">
         <item android:id="@+id/dashboard"
             android:title="Dashboard" />
+        <item android:id="@+id/dealerprof"
+            android:title="Dealer Profile"/>
         <item android:id="@+id/myequipments"
             android:title="My Equipments"/>
         <item android:id="@+id/drmlead"
             android:title="Leads"/>
         <item android:id="@+id/auctions"
             android:title="Auctions"/>
+        <item android:id="@+id/logout"
+            android:title="Log Out"/>
     </group>
 
 </menu>

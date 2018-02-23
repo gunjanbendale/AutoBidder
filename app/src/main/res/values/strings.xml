@@ -23,6 +23,11 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string-array name="signupcateg">
+        <item>Select Type</item>
+        <item>Dealer</item>
+        <item>Customer</item>
+    </string-array>
     <string-array name="dashboarditems">
         <item>Visits :</item>
         <item>Inventory :</item>
